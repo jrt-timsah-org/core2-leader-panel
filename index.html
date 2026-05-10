@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>総大将コントロールパネル</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>総大将コントロールパネル</h1>
+  <div id="config">
+    <div class="panel config-panel">
+      <h2>同盟設定</h2>
+      <label>RED: <input type="text" id="red-name" placeholder="UNDEFINED"></label>
+      <label>BLUE: <input type="text" id="blue-name" placeholder="UNDEFINED"></label>
+      <label>操作側:</label>
+      <select id="team-side">
+        <option value="red">RED</option>
+        <option value="blue" selected>BLUE</option>
+      </select>
+      <button id="set-names">設定</button>
+    </div>
+    <div class="panel config-panel">
+      <h2>ボーナス追加</h2>
+      <select id="bonus-type">
+        <option value="tech-prize">革新的技術賞 (RP+150)</option>
+        <option value="idea-prize">革新的アイデア賞 (RP+80)</option>
+        <option value="try-prize">GOOD TRY賞 (RP+40)</option>
+        <option value="prop-prize">技術提案賞 (RP+20)</option>
+        <option value="knowledge-share">ナレッジシェア賞 (ディスク+50)</option>
+        <option value="best-team">BEST TEAM賞 (ディスク+50)</option>
+        <option value="good-pr">優秀広報賞 (ディスク+50)</option>
+        <option value="remain-disk">残りディスク+5</option>
+        <option value="full-exall">全スキル再発動</option>
+      </select>
+      <button id="add-bonus">追加</button>
+    </div>
+    <div class="panel config-panel">
+      <h2>ポイント調整</h2>
+      <button id="add-rp">RP+10</button>
+      <button id="add-disk">ディスク+10</button>
+      <button id="add-vp">VP+10</button>
+    </div>
+  </div>
+
+  <div id="dashboard">
+    <div class="panel" id="points-panel">
+      <h2>ステータス</h2>
+      <table id="status-table">
+        <thead>
+          <tr><th></th><th id="header-red">RED - UNDEFINED</th><th id="header-blue">BLUE - UNDEFINED</th></tr>
+        </thead>
+        <tbody>
+          <tr><th>VP</th><td id="vp-red">0</td><td id="vp-blue">0</td></tr>
+          <tr><th>RP</th><td id="rp-red">100</td><td id="rp-blue">100</td></tr>
+          <tr><th>ディスク</th><td id="disk-red">200</td><td id="disk-blue">200</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="panel" id="bonus-panel">
+      <h2>ボーナス (現在操作側)</h2>
+      <ul id="bonus-list"></ul>
+    </div>
+    <div class="panel" id="skill-panel">
+      <h2>スキル</h2>
+      <div id="skills"></div>
+    </div>
+    <div class="panel" id="log-panel">
+      <h2>ログ (現在操作側)</h2>
+      <ul id="log-list"></ul>
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

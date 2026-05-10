@@ -1,0 +1,201 @@
+/* CSS Variables for Theme Support */
+:root {
+  --primary-bg: #f0f4f8;
+  --border-color: #e0e6ed;
+  --title-color: #2c3e50;
+  --success-color: #27ae60;
+  --success-border: #2ecc71;
+  --skill-bg: #3498db;
+  --boost-color: #e74c3c;
+  --log-bg: #f8f9fa;
+  --bonus-bg: #ecf0f1;
+}
+
+/* Theme Overrides for Red/Blue Sides */
+[data-client-side="red"] {
+  --primary-bg: #fdf2e9;
+  --border-color: #c0392b;
+  --title-color: #c0392b;
+  --success-border: #e74c3c;
+  --skill-bg: #e74c3c;
+}
+
+[data-client-side="blue"] {
+  --primary-bg: #e5f0ff;
+  --border-color: #2980b9;
+  --title-color: #2980b9;
+  --success-border: #2980b9;
+  --skill-bg: #3498db;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 20px;
+  background-color: var(--primary-bg);
+}
+
+h1 {
+  text-align: center;
+  color: var(--title-color);
+  margin-bottom: 30px;
+}
+
+#config {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  max-width: 1400px;
+  margin: 0 auto 20px;
+}
+
+.config-panel {
+  min-width: 0;
+}
+
+.config-panel label, .config-panel select, .config-panel button {
+  display: block;
+  width: 100%;
+  margin-bottom: 8px;
+  box-sizing: border-box;
+}
+
+#dashboard {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto auto;
+  gap: 15px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.panel {
+  background: white;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 2px solid var(--border-color);
+  min-width: 0;
+}
+
+#points-panel { grid-column: 1 / -1; grid-row: 1; }
+#bonus-panel { grid-column: 1; grid-row: 2; }
+#skill-panel { grid-column: 1; grid-row: 3; }
+#log-panel { grid-column: 2; grid-row: 2 / 4; }
+
+.panel {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 2px solid var(--border-color);
+}
+
+.panel h2 {
+  margin-top: 0;
+  color: var(--title-color);
+  border-bottom: 2px solid var(--skill-bg);
+  padding-bottom: 10px;
+  font-size: 16px;
+}
+
+#status-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#status-table th, #status-table td {
+  border: 1px solid var(--border-color);
+  padding: 8px 12px;
+  text-align: center;
+}
+
+#status-table thead th {
+  background: var(--skill-bg);
+  color: white;
+}
+
+#status-table tbody th {
+  background: #f5f5f5;
+  font-weight: bold;
+}
+
+#bonus-list {
+  list-style: none;
+  padding: 0;
+}
+
+#bonus-list li {
+  background: var(--bonus-bg);
+  margin: 5px 0;
+  padding: 8px;
+  border-radius: 5px;
+  border-left: 4px solid var(--skill-bg);
+}
+
+#skills {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+}
+
+.skill-btn {
+  background: var(--skill-bg);
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s;
+}
+
+.skill-btn:hover {
+  transform: translateY(-2px);
+}
+
+.skill-btn:disabled {
+  background: #bdc3c7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.skill-btn.free {
+  background: var(--success-color);
+  border: 2px solid var(--success-border);
+}
+
+.skill-btn.free:hover {
+  background: var(--success-border);
+}
+
+#log-list {
+  list-style: none;
+  padding: 0;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+#log-list li {
+  background: var(--log-bg);
+  margin: 5px 0;
+  padding: 8px;
+  border-radius: 5px;
+  border-left: 4px solid #95a5a6;
+  font-size: 14px;
+}
+
+.status-active {
+  background: #2ecc71 !important;
+  border-left-color: #27ae60 !important;
+}
+
+@media (max-width: 768px) {
+  #dashboard {
+    grid-template-columns: 1fr;
+  }
+  
+  #skills {
+    grid-template-columns: 1fr;
+  }
+}
